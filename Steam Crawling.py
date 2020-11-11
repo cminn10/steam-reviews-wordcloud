@@ -1,8 +1,8 @@
 #Homework 7
 #Libraries used: urllib, bs4, wordcloud, matplotlib
 
-cloudPicSave = '/Users/kurasame/Documents/Fall 2018/Py/steam/'
-stopWordsPath = '/Users/kurasame/Documents/Fall 2018/Py/steam/stopwords.txt'
+cloudPicSave = './steam/'
+stopWordsPath = './stopwords.txt'
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
