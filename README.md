@@ -12,3 +12,7 @@ The user inputs the title of the game he/she is searching for. With no case sens
 > Attachment:
 > [stopwords.txt](.\stopwords.txt)
 > A set of stop words containing the universal stop words and some additional frequent words in game reviews.
+
+## Demo
+
+A demo is now deployed [here](https://steam-review-word-cloud.herokuapp.com/) with Heroku.
