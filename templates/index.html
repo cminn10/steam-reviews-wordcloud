@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Steam Review WordCloud Generator</title>
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <div class="align-items-center g-5 py-5 bd-content">
+            <h1 class="display-5 fw-bold lh-1 mb-3">Steam Review WordCloud Generator</h1>
+            <p class="fs-5 mb-4 text-white-50">Please enter game title:</p>
+            <form class="form mb-3 col-lg-6 mx-auto" action="{{url_for('index')}}" method="POST">
+                <input class="form-control" id="game_title" title="Please enter game title" placeholder="Game title" type="text" name="game_title" required><br>
+                <button class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" type="submit" onclick="loading()">Get Word Cloud</button>
+                <button class="btn btn-outline-light btn-lg px-4" onclick="reset()" type="reset" formnovalidate>Reset</button>
+            </form>
+            <div class="lead" id="loading" style="visibility: hidden;">
+                <p>Generating word-cloud for <span id="show_title"></span> ...</p>
+            </div>
+            <div class="container px-5" id="result">
+                {% if img_data %}
+                <img class="img-fluid border rounded-3 shadow-lg mb-4" id='cloudpic' src="data:image/jpeg; base64, {{ img_data }}"> {% elif not_found_msg %}
+                <p class="lead">{{ not_found_msg }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function loading() {
+            var loadingSpan = document.querySelector("#show_title");
+            loadingSpan.innerText = document.querySelector("#game_title").value;
+            document.querySelector("#loading").style.visibility = "visible";
+            document.querySelector("#result").style.visibility = "visible";
+        }
+    </script>
+</body>
+
+</html>
