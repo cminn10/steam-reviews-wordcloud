@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, url_for, redirect
+from flask import Flask, render_template, request
 from crawl_steam import get_all
 import base64
 import io
@@ -26,8 +26,3 @@ async def search():
     encoded_img_data = base64.b64encode(data.getvalue())
 
     return render_template('index.html', img_data=encoded_img_data.decode('utf-8'), game_tile=game_title)
-
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run()
